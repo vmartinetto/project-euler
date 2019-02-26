@@ -10,14 +10,15 @@
 !      Vincent Martinetto
 !
        implicit none
-       integer :: i, x
-       real :: n = 600851475143
+       integer :: i, y 
+       real ::  m
+       integer*8 :: x = 600851475143 
 !
 !      this while loop extracts all 2s from the input number n if there
 !      are any present
 !
-       do while (mod(n,2).eq.0)
-         n = n/2
+       do while (mod(x,2).eq.0)
+         x = x/2
          print *, 2
        end do
 !
@@ -26,10 +27,11 @@
 !      over all the odd factors left and removes them from n. the sqrt
 !      removes redudndant integers from having to be checked.
 !
-       x = SQRT(n)+1
-       do i = 3,x,2
-          do while (mod(n,i).eq.0)
-           n = n/i
+       m = real(x)
+       y = (int(SQRT(m)))+1
+       do i = 3,y,2
+         do while (mod(x,i).eq.0)
+           x = x/i
            print *, i
          end do
        end do
@@ -37,8 +39,8 @@
 !      this last section just checks it n isn't 1 then it is prime and
 !      it prints it
 !
-       if (n.ge.2) then
-         print n
+       if (x.ge.2) then
+         print *, x
        end if
 !
        end program
