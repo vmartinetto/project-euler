@@ -7,6 +7,14 @@
        print *, 'what prime do you want?'
        read *, n
 !
+! this finds the nth prime that is asked for by itereating over x as the
+! number of prime in the sequence and i as the actual number. n is the
+! target number prime used for the do while loop. to find if i is prime
+! it's square root is taken and 1 is added to its value and stored in
+! sq. a loop then iterates over 2 to sq and if anything ever divides
+! into it evenly the number is thrown out. if the number is a prime it
+! is also discarded but x is increased by 1.
+!
        do while (x.le.n)
          re = real(i)
          sq = (int(sqrt(re)))+1
@@ -19,13 +27,14 @@
              cycle
            end if
          end do
-         if (x.eq.n) then
-           nth = i
-           exit
-         end if
          i = i + 1
        end do
 !
+!
+!
+       nth = i - 1
        print *, nth
+!
+!
 !
        end program
